@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .all-body{
+            position: fixed;
+            top: 55px;
+            bottom: 0;
+            left: 0;
+            right:0;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+        }
+        .chatters{
+            padding: 12px;
+            margin: 2px;
+            width: 100%;
+            background: transparent;
+            border: none;
+        }
+        .chatters:hover{
+            background-color: rgb(235, 234, 234);
+            transition: 0.15s;
+        }
+    </style>
+</head>
+<body> 
+    <header style="height: 25px;position: fixed;top: 0;left:0;right:0;color: white;background-color: black;padding: 15px;font-size: 18px;">
+        ChatApp
+    </header>
+    <div class="all-body">
+        <div style="height: 100%; display: flex; flex-direction: column;overflow-y: scroll;">
+            {% for usr in chat_data %}
+            <form method="post" target="iframe">
+                {% csrf_token %}
+                <button type="submit" name="reci" value="{{usr.user.id}}" class="chatters">
+                <div style="font-size: 15px;text-align: left;">{{ usr.user.username }}</div>
+                <div style="font-size: 12px;opacity: 0.90;text-align: left;">{% if usr.last_message %}{{usr.last_message}}{% else %}---{% endif %}</div>
+                </button>
+            <!--<button type="submit" style="height: 100%;width: 100%;opacity: 0;" name="reci" value="{{usr.user.id}}"></button>-->
+            </form>
+            
+            {% endfor %}
+        </div>
+        <div style="height: 100%;">
+            <iframe src="/room" id="iframe" name="iframe" style="width: 100%;height: 100%;border:none;"></iframe>
+        </div>
+    </div>
+</body>
+</html>
