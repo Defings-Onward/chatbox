@@ -11,7 +11,7 @@ def signup(request):
         password = request.POST.get('password')
         user = User.objects.filter(username=username)
         if not user:
-            user = User.objects.create(username=username, email=email, password=password)
+            user = User.objects.create_user(username=username, email=email, password=password)
             login(request, user)
             return redirect('home')
         else:

@@ -84,10 +84,11 @@ WSGI_APPLICATION = 'chatproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'chatproject',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'ajayiobanijesu_2006',
+        'PASSWORD': 'RAfxVLxSKaVFgqgUQXXfBdHFjqzSOXFR',
         'PORT': '5432',
+        'HOST': 'postgres.railway.internal'
 
     }
 }
@@ -139,7 +140,15 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CHANNEL_LAYERS = {"default": {"BACKEND": "channels.layers.InMemoryChannelLayer"}}
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": ["redis://default:jNJFdxNBBLuMYNFPyVsBfniZUKsnQfiq@redis.railway.internal:6379"],
+        },
+    },
+}
+
 
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/login'
