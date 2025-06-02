@@ -28,14 +28,26 @@
             background-color: rgb(235, 234, 234);
             transition: 0.15s;
         }
+        #users{
+            height: 100%; display: flex; flex-direction: column;overflow-y: scroll;
+        }
+        @media (max-width: 540px){
+            #users{
+                display:none
+            }
+            .all-body{
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body> 
-    <header style="height: 25px;position: fixed;top: 0;left:0;right:0;color: white;background-color: black;padding: 15px;font-size: 18px;">
-        ChatApp
+    <header style="height: 25px;position: fixed;top: 0;left:0;right:0;color: white;background-color: black;padding: 15px;font-size: 18px;display: flex;align-items: center;justify-content: space-between;">
+        <div>ChatApp</div>
+        <form method="post" action="/logout/">{% csrf_token %}<button type="submit" style="font-size: 15px;opacity: 0.83;border: none;background: none;color: white;">logout</button></form>
     </header>
     <div class="all-body">
-        <div style="height: 100%; display: flex; flex-direction: column;overflow-y: scroll;">
+        <div id="users">
             {% for usr in chat_data %}
             <form method="post" target="iframe">
                 {% csrf_token %}
