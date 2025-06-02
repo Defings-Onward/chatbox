@@ -31,6 +31,9 @@ ALLOWED_HOSTS = ['chatbox-production-e409.up.railway.app']
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
+CSRF_TRUSTED_ORIGINS = [
+    "https://chatbox-production-e409.up.railway.app",
+]
 
 INSTALLED_APPS = [
     'daphne',
