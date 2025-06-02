@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$w*7czuqfk8(il88w&0@4q%vn(*^(8rj2!o5h2d3zd8u534^cu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['chatapp.up.railway.app']
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -87,11 +87,11 @@ DATABASES = {
         'NAME': 'railway',
         'USER': 'postgres',
         'PASSWORD': 'RAfxVLxSKaVFgqgUQXXfBdHFjqzSOXFR',
-        'PORT': '5432',
-        'HOST': 'postgres.railway.internal'
-
+        'HOST': 'caboose.proxy.rlwy.net',
+        'PORT': '53815',  # <- This is very important!
     }
 }
+
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
@@ -144,7 +144,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": ["redis://default:jNJFdxNBBLuMYNFPyVsBfniZUKsnQfiq@redis.railway.internal:6379"],
+            "hosts": ["redis://default:jNJFdxNBBLuMYNFPyVsBfniZUKsnQfiq@nozomi.proxy.rlwy.net:24421"],
         },
     },
 }
