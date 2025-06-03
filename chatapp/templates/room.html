@@ -70,7 +70,7 @@
         </form>
     </div>
     <script>
-        const socketURL = `ws://${window.location.host}/ws/messages/{{room.id}}/`;
+        const socketURL = `wss://${window.location.host}/ws/messages/{{room.id}}/`;
     console.log("Establishing Socket Connection")
     const socket = new WebSocket(socketURL)
 
