@@ -1,3 +1,3 @@
-  web: daphne chatproject.asgi:application --host=0.0.0.0 --port=8080
-  worker: python manage.py runworker
+  web: daphne chatproject.asgi:application --port $PORT
+  worker: python manage.py runworker --clear-connections --settings chatproject.settings
   redis: redis
