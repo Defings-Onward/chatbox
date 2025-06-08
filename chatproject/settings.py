@@ -26,14 +26,15 @@ SECRET_KEY = 'django-insecure-$w*7czuqfk8(il88w&0@4q%vn(*^(8rj2!o5h2d3zd8u534^cu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['chatbox-production-ad0a.up.railway.app']
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
 CSRF_TRUSTED_ORIGINS = [
-    'chatbox-production-ad0a.up.railway.app'
+    "https://chatbox-production-ad0a.up.railway.app",
 ]
+
 
 INSTALLED_APPS = [
     'daphne',
