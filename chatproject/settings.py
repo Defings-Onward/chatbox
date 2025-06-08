@@ -32,7 +32,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
 CSRF_TRUSTED_ORIGINS = [
-    "*"
+    'chatbox-production-ad0a.up.railway.app'
 ]
 
 INSTALLED_APPS = [
