@@ -105,16 +105,19 @@
     <script>
         const btn = document.getElementById('emer-btn')
         const body = document.querySelector('.all-body')
-        const button = document.querySelector('.chatters')
+        const button = document.querySelectorAll('.chatters')
         const width = window.innerWidth;
         btn.addEventListener('click', () => {
             body.className = 'all-body stubborn';
             
         })
-        button.addEventListener('click', () => {
+        button.forEach((btn) => {
+            btn.addEventListener('click', () => {
             body.className = 'all-body another';
             
         })
+        })
+        
     </script>
 </body>
 </html>
